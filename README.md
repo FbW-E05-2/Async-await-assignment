@@ -43,3 +43,44 @@ getImg(); // image inside the body   <-- after 2 seconds
 
 
 
+## Assignment 3
+
+- We have a “regular” function called `run` and “async” function called “catchFunction” . How can you call the 
+`async` function `getOffers()` using `try catch` to use its result inside of `run`?
+- replace the return inside getOffer with : 
+
+```js
+return Promise.resolve( 'the are 10 offers 😀  ');
+
+```
+
+> `Promise.resolve()` and `Promise.reject()` are another way to resolve and reject the promise
+
+```js
+ async function getOffers() {
+   return Promise.reject( new Error('sorry we have an error connecting to the server! '))
+  
+  
+ }
+ 
+ async function catchFunction() {
+     try { 
+       // here you need to call getOffers using await 
+       // you need to return the value of calling getOffers
+        
+     } catch (err) {
+        // here you need to log the error message
+         
+     }
+     return 'no data found 😑'
+         
+  
+ }
+ 
+ async function run() {
+     const value = await catchFunction();
+     console.log(value);
+ }
+ 
+ run();
+```

@@ -32,4 +32,31 @@ async function wait() {
   }
   
   getImg(); // image inside the body   <-- after 2 seconds
- 
+ // #####################################################################
+
+ async function getOffers() {
+   return Promise.reject( new Error('sorry we have an error connecting to the server! '))
+    
+    
+   }
+   
+   async function catchFunction() {
+       try { 
+         // here you need to call getOffers using await 
+         // you need to return the value of calling getOffers
+          
+       } catch (err) {
+          // here you need to log the error message
+           
+       }
+       return 'no data found 😑'
+           
+    
+   }
+   
+   async function run() {
+       const value = await catchFunction();
+       console.log(value);
+   }
+   
+   run();
